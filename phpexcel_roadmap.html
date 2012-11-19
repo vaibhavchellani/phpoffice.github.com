@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>PHPOffice</title>
+		<link href="statics/css/bootstrap.min.css" rel="stylesheet">
+		<link href="statics/css/bootstrap-responsive.min.css" rel="stylesheet">
+		<link href="statics/css/gh-fork-ribbon.css" rel="stylesheet" />
+		<!--[if IE]>
+			<link href="statics/css/gh-fork-ribbon.ie.css" rel="stylesheet" />
+		<![endif]-->
+		<link href="statics/css/style.css" rel="stylesheet">
+	</head>
+	<body>
+		<div class="github-fork-ribbon-wrapper right">
+			<div class="github-fork-ribbon">
+				<a href="https://github.com/PHPOffice/PHPExcel">Fork me on GitHub</a>
+			</div>
+		</div>
+		<div class="navbar navbar-inverse navbar-fixed-top">
+			<div class="navbar-inner">
+			  <div class="container-fluid">
+				<a class="brand" href="#">PHPOffice</a>
+				<div class="nav-collapse collapse">
+				  <ul class="nav">
+					<li><a href="index.html">Home</a></li>
+					<li class="active"><a href="phpexcel_features.html">PHPExcel</a></li>
+					<li><a href="#">PHPPowerPoint</a></li>
+					<li><a href="#">PHPProject</a></li>
+					<li><a href="#">PHPVisio</a></li>
+					<li><a href="#">PHPWord</a></li>
+				  </ul>
+				</div><!-- /.nav-collapse -->
+			  </div>
+			</div><!-- /navbar-inner -->
+		</div><!-- /navbar -->
+		<div class="container-fluid">
+		  <div class="row-fluid">
+			<div class="span2">
+				<div class="well sidebar-nav">
+					<ul class="nav nav-list">
+						<li><a href="index.html">Home</a></li>
+						<li><a href="team.html">Team</a></li>
+						<li class="nav-header">PHPExcel</li>
+						<li><a href="phpexcel_news.html">News</a></li>
+						<li><a href="phpexcel_features.html">Features</a></li>
+						<li><a href="phpexcel_requirements.html">Requirements</a></li>
+						<li><a href="phpexcel_faq.html">FAQ</a></li>
+						<li><a href="phpexcel_contribute.html">Contribute</a></li>
+						<li class="active"><a href="phpexcel_roadmap.html">Roadmap</a></li>
+						<li><a href="phpexcel_resources.html">Resources</a></li>
+						<li><a href="phpexcel_credits.html">Credits</a></li>
+					</ul>
+				</div><!--/.well -->
+			</div><!--/span-->
+			<div class="span10">
+				<h1>Roadmap</h1>
+				<h2>2012</h2>
+				<h3>Major Development Objectives</h3>
+				<h4>Readers</h4>
+				<ul>
+					<li>Additional Reader for HTML. - Targetted for 1.7.8 release</li>
+					<li>Convert XML-based Readers (Excel2007, OOCalc, Gnumeric, Excel2003XML) to use XMLReader rather than SimpleXML, should help performance and reduce memory overheads.</li>
+					<li>Read Sheet Information without loading entire workbook. (schir1964's listWorksheetInfo() method.) - **Included in 1.7.7 release **</li>
+				</ul>
+				<h4>Writers</h4>
+				<ul>
+					<li>Additional Writers for Gnumeric, SYLK, OOCalc and Excel2003XML. - Excel2003XML targetted for 1.7.8 release</li>
+					<li>Remove tcPDF from the distribution download, and provide configurable options to use 3rd party libraries - tcPDF, domPDF or mPDF (choice of user-installed 3rd party libraries). - Targetted for 1.7.8 release</li>
+					<li>Document Properties for Excel5 Writer (OLE has already been modified to permit writing of the properties streams). - Included in 1.7.7 release</li>
+					<li>Rich Text cells in Excel5 Writer. - Included in 1.7.7 release</li>
+				</ul>
+				<h4>Internals</h4>
+				<ul>
+					<li>Performance Rewrite of the Calculation Engine.</li>
+					<li>With Excel 2010, Microsoft changed the algorithms used for calculating (among others) the Bessel functions, erf and erfc, making them more accurate, and OpenOffice followed their lead; so I'll be changing these functions in the calculation engine to reflect the new algorithms.</li>
+					<li>Convert the Calculation Engine from using Singleton to use Multiton pattern, to prevent cache errors when working with calculations in multiple workbooks.</li>
+					<li>More consistency in method arguments for cell, row, column and range, particularly for styling.</li>
+				</ul>
+				<h4>New Features</h4>
+				<ul>
+					<li>Chart support, initially for the Excel2007 Reader/Writer, with rendering support as a configurable option using 3rd party libraries - such as jpGraph and GraPHPite (choice of user-installed 3rd party libraries).... this work is largely complete, but a few bugs that still need ironing out with the Writer before I can release it. - Experimental version included in 1.7.7 release</li>
+					<li>Pivot Tables, initially for the Excel2007 Reader/Writer.</li>
+				</ul>
+				<h3>Minor Development Objectives</h3>
+				<h4>Readers</h4>
+				<ul>
+					<li>Optional use of PCLZip for Zip-based Readers (Excel2007) for those who can't use ZipArchive.</li>
+				</ul>
+				<h4>Helper Features</h4>
+				<ul>
+					<li>HTML to Rich-Text Object helper method.</li>
+				</ul>
+				<h4>Internals</h4>
+				<ul>
+					<li>Create a separate PHPExcel_Shared_Complex class for handling Complex numbers within the engineering functions. - Targetted for 1.7.8 release</li>
+					<li>Additional languages (e.g. Greek, Japanese) and locale features (e.g. date masks such as J instead of Y for Years) for formulae. It's also probable that I'll make each "language pack" an additional download, rather than part of the core download.</li>
+				</ul>
+				<h3>General Objectives</h3>
+				<ul>
+					<li>Ensure no compatability problems running PHPExcel with PHP 5.4. - Done for 1.7.7 release</li>
+					<li>Ongoing bugfixing.</li>
+					<li>Ongoing performance testing and (hopefully) improvements.</li>
+					<li>Distribution as a phar file.</li>
+				</ul>
+				<h3>Build Process (for my own benefit)</h3>
+				<ul>
+					<li>Convert all my customised test scripts to use PHPUnit (a tricky process that will take some time and effort).</li>
+ 					<li>Code Coverage Analysis.</li>
+					<li>Use Jenkins for CI - automated unit testing, code coverage, building API docs. - Looking at moving the source repository to github and the use of TravisCI</li>
+				</ul>
+				<h3>Enhanced Documentation</h3>
+				<ul>
+					<li>Online Documentation (including API).</li>
+					<li>Links from API Documentation to the Sample code in the /Documentation/Examples and References to Sections in User Documentation.</li>
+					<li>User reference guides for working with cell data, styling and writing (similar to the reading guide, and with lots of example code).</li>
+					<li>User Documentation in PDF format as well as Doc files.</li>
+				</ul>
+				<h3>Special Objectives</h3>
+				<ul>
+					<li>Convert core PHPExcel to C/C++ and build as a PHP Extension.</li>
+				</ul>
+				<h3>General</h3>
+				<p>With the immanent release of PHP 5.4, it would be nice to be able to set PHP 5.3.0 as a minimum version requirement, which would allow the use of features introduced in PHP 5.3 such as Namespaces and Closures that can give both memory and performance improvements. Good use of Namespaces would also simplify the process of mocking for unit testing. Sadly, I don't think this is yet an option as a lot of users are still on PHP 5.2.x even though 5.2 has been unsupported since the release of version 5.3.8 on 23rd August 2011.</p>
+			</div><!--/span-->
+		</div><!--/row-->
+    </div><!--/.fluid-container-->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+		<script src="statics/js/bootstrap.min.js"></script>
+	</body>
+</html>
